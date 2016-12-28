@@ -3,15 +3,14 @@
 Build and run:
 
 ```
-docker build -t iodine .
-docker run --rm -ti --privileged -p 53:53/udp -e IODINE_HOST=<tunneldomain> -e IODINE_PASSWORD=<pass> iodine
+docker build --tag 'docker-iodine:local' .
+docker run --rm -ti --cap-add NET_ADMIN -e IODINE_HOST=<tunneldomain> -e IODINE_PASSWORD=<pass> -e docker-iodine:local
 ```
 
 Run from docker hub:
 
 ```
-docker run -d --restart=always --privileged -p 53:53/udp -e IODINE_HOST=<tunneldomain> -e IODINE_PASSWORD=<pass> -e
-EXTERNAL_IP=<externalserverip> --name iodine asmaps/iodine
+docker run -d --restart=always --cap-add NET_ADMIN -e IODINE_HOST=<tunneldomain> -e IODINE_PASSWORD=<pass> -e EXTERNAL_IP=<externalserverip> --name iodine thebiggerguy/iodine
 ```
 
 
