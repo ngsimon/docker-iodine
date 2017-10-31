@@ -1,5 +1,6 @@
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER Guy Taylor <thebigguy.co.uk@gmail.com>
+MAINTAINER simon@linosec.lu
 
 RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ iodine tini iptables && \
     echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf && \
